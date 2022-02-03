@@ -1,0 +1,16 @@
+function multiplyBy2(input){
+    let index = 0;
+    let number = Number(input[index++]);
+    let sum = 0;
+
+    while (number >= 0) {
+        sum = number * 2;
+        console.log(`Result: ${sum.toFixed(2)}`);
+        number = Number(input[index++]);
+
+        if (number < 0) {
+            console.log("Negative number!")
+            break;
+        }
+    }
+}
