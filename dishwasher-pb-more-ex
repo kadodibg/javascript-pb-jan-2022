@@ -1,0 +1,40 @@
+function dishwasher(input) {
+  let index = 0;
+  let detragent = Number(input[index++]);
+  let command = "";
+  let ownedDetragent = detragent * 750;
+  let detragentNeeded = 0;
+  let plates = 0;
+  let pots = 0;
+  let counter = 1;
+
+  while (command !== "End") {
+    let command = input[index++];
+    if (command === "End") {
+      break;
+    }
+    if (counter % 3 === 0) {
+      detragentNeeded += command * 15;
+    } else {
+      detragentNeeded += command * 5;
+    }
+    if (detragentNeeded > ownedDetragent) {
+      break;
+    }
+    if (counter % 3 === 0) {
+      pots += Number(command);
+    } else {
+      plates += Number(command);
+    }
+    counter++;
+  }
+
+
+  if (detragentNeeded <= ownedDetragent) {
+    console.log(`Detergent was enough!`);
+    console.log(`${plates} dishes and ${pots} pots were washed.`);
+    console.log(`Leftover detergent ${Math.abs(ownedDetragent - detragentNeeded)} ml.`)
+  } else {
+    console.log(`Not enough detergent, ${Math.abs(detragentNeeded - ownedDetragent)} ml. more necessary!`);
+  }
+}
