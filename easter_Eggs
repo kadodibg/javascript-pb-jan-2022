@@ -1,0 +1,47 @@
+function easterEggs(input) {
+    index = 0;
+    let countEgss = Number(input[index++])
+    let egssColor = "";
+    let countRed = 0;
+    let countOrange = 0;
+    let countBlue = 0;
+    let countGreen = 0;
+    let maxEgss =0;
+    let color ="";
+    for (let i = 0; i < countEgss; i++) {
+        let egssColor = input[index++];
+        switch (egssColor) {
+            case "red":
+                countRed++
+                break;
+            case "orange":
+                countOrange++
+                break;
+            case "blue":
+                countBlue++
+                break;
+            case "green":
+                countGreen++
+                break;
+        }
+    }
+    let maxEggsCounts = countRed;
+    let maxCollor = "red";
+        if (countOrange > maxEggsCounts){
+            maxEggsCounts = countOrange;
+            maxCollor = "orange";
+        }
+        if (countBlue > maxEggsCounts){
+            maxEggsCounts =countBlue;
+            maxCollor= "blue";
+        }
+        if (countGreen > maxEggsCounts){
+            maxEggsCounts = countGreen;
+            maxCollor= "green";
+        }
+    console.log(`Red eggs: ${countRed}`);
+    console.log(`Orange eggs: ${countOrange}`);
+    console.log(`Blue eggs: ${countBlue}`);
+    console.log(`Green eggs: ${countGreen}`);
+    console.log(`Max eggs: ${maxEggsCounts} -> ${maxCollor}` )
+}
