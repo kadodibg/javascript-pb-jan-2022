@@ -1,0 +1,48 @@
+function tournamentOfChristmas(input) {
+    index = 0;
+    let days = input[index++];
+    //console.log(days)
+    let money = 0;
+    let allMoney = 0;
+    let winGames = 0;
+    let loseGames = 0;
+    let daysWin = 0;
+    let dayLose = 0;
+    let command = "";
+
+    for (let i = 0; i < days; i++) {
+        money = 0;
+        winGames = 0;
+        loseGames = 0;
+        command = input[index++];
+        while (command != "Finish") {
+            if (command == "win") {
+                winGames++;
+                daysWin++
+                money += 20
+                // console.log(winGames)
+                //console.log(money)
+            } else if (command == "lose") {
+                loseGames++;
+                dayLose++;
+                //console.log(loseGames)
+            }
+            if (command == "Finish") {
+                break;
+            }
+            command = input[index++];
+        }
+        if (winGames > loseGames) {
+            money += (money * 0.1);
+            allMoney += money;
+        } else {
+            allMoney += money;
+        }
+    }
+    if (daysWin > dayLose) {
+        allMoney *= 1.2
+        console.log(`You won the tournament! Total raised money: ${allMoney.toFixed(2)}`)
+    } else {
+        console.log(`You lost the tournament! Total raised money: ${allMoney.toFixed(2)}`)
+    }
+}
