@@ -1,0 +1,27 @@
+function easterBake(input) {
+    let index = 0;
+    let easterBred = Number(input[index++]);
+    let tempSugar = 0;
+    let tempFlour = 0;
+    let maxSugar = 0;
+    let maxFlour = 0;
+    for (let i = 0; i < easterBred; i++) {
+        let sugar = Number(input[index++]);
+        let flour = Number(input[index++]);
+        tempFlour += flour
+        tempSugar += sugar
+        if (sugar > maxSugar) {
+            maxSugar = sugar;
+        }
+        if (flour > maxFlour) {
+            maxFlour = flour;
+        }
+    }
+    console.log(tempSugar)
+    tempSugar = Math.ceil(tempSugar / 950)
+    tempFlour = Math.ceil(tempFlour / 750)
+    console.log(`Sugar: ${tempSugar}`)
+    console.log(`Flour: ${tempFlour}`)
+    console.log(`Max used flour is ${maxFlour} grams, max used sugar is ${maxSugar} grams.`)
+}
+easterBake(["3", "400", "350", "250", "300", "450", "380"])
