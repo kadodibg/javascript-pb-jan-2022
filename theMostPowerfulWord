@@ -1,0 +1,33 @@
+function theMostPowerfulWord(input) {
+    let strong = "";
+    let total = 0;
+    for (let i = 0; i < input.length; i++) {
+        let word = input[i];
+        if (word === `End of words`) {
+            break;
+        }
+        let sum = 0;
+        for (let j = 0; j < word.length; j++) {
+            sum += word[j].charCodeAt();
+        }
+        switch (word[0].toLowerCase()) {
+            case `a`:
+            case `e`:
+            case `i`:
+            case `o`:
+            case `u`:
+            case `y`:
+                sum *= word.length;
+                break;
+            default:
+                sum /= word.length;
+                break;
+        }
+        if (sum > total) {
+            strong = word;
+            total = sum;
+        }
+    }
+    console.log(`The most powerful word is ${strong} - ${Math.floor(total)}`);
+}
+theMostPowerfulWord(["But", "Some", "People", "Say", "It's", "LOVE", "End of words"]);
