@@ -1,0 +1,45 @@
+function fitnessCenter(input) {
+    let index = 0;
+    let fitGus = Number(input[index++]);
+    let counter = 0;
+    let p1 = 0;
+    let p2 = 0;
+    let p3 = 0;
+    let p4 = 0;
+    let p5 = 0;
+    let p6 = 0;
+    let shake = 0;
+    let bar = 0;
+    let workOut = 0;
+    let protein = 0;
+    for (let i = 1; i <= fitGus; i++) {
+        let services = input[index++];
+        counter++;
+        switch (services) {
+            case "Back": p1++; workOut++; break;
+            case "Chest": p2++; workOut++; break;
+            case "Legs": p3++; workOut++; break;
+            case "Abs": p4++; workOut++; break;
+            case "Protein shake": p5++; protein++; shake++; break;
+            case "Protein bar": p6++; protein++; bar++; break;
+        }
+    }
+    workOut = (workOut / counter) * 100;
+    protein = (protein / counter) * 100;
+    console.log(`${p1} - back`)
+    console.log(`${p2} - chest`)
+    console.log(`${p3} - legs`)
+    console.log(`${p4} - abs`)
+    console.log(`${p5} - protein shake`)
+    console.log(`${p6} - protein bar`)
+    console.log(`${workOut.toFixed(2)}% - work out`)
+    console.log(`${protein.toFixed(2)}% - protein`)
+}
+fitnessCenter(["7",
+"Chest",
+"Back",
+"Legs",
+"Legs",
+"Abs",
+"Protein shake",
+"Protein bar"])
