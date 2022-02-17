@@ -1,0 +1,56 @@
+function travelAgency(input) {
+    let travelCity = input[0];
+    let pack = input[1];
+    let vip = input[2];
+    let days = Number(input[3]);
+    let total = 0;
+    let finalPayment = 0;
+    if ((travelCity === "Bansko" || travelCity === "Borovets") && (pack === "withEquipment" || pack === "noEquipment")) {
+        if (vip === "yes") {
+            switch (pack) {
+                case "withEquipment": total += 100 * 0.9; break;
+                case "noEquipment": total += 80 * 0.95; break;
+            }
+        } else if (vip === "no") {
+            switch (pack) {
+                case "withEquipment": total += 100; break;
+                case "noEquipment": total += 80; break;
+            }
+        }
+        if (days <= 0) {
+            console.log(`Days must be positive number!`)
+            return;
+        } else if (days > 7) {
+            finalPayment = (total * days) - total;
+        } else if (days <= 7) {
+            finalPayment = total * days;
+        }
+        console.log(`The price is ${finalPayment.toFixed(2)}lv! Have a nice time!`)
+    } else if ((travelCity === "Varna" || travelCity === "Burgas") && (pack === "withBreakfast" || pack === "noBreakfast")) {
+        if (vip === "yes") {
+            switch (pack) {
+                case "withBreakfast": total += 130 * 0.88; break;
+                case "noBreakfast": total += 100 * 0.93; break;
+            }
+        } else if (vip === "no") {
+            switch (pack) {
+                case "withBreakfast": total += 130; break;
+                case "noBreakfast": total += 100; break;
+            }
+        }
+        if (days <= 0) {
+            console.log(`Days must be positive number!`);
+            return;
+        } else if (days > 7) {
+            finalPayment = (total * days) - total;
+        } else if (days <= 7) {
+            finalPayment = total * days;
+            console.log(`The price is ${finalPayment.toFixed(2)}lv! Have a nice time!`)
+        }
+    } else {
+        console.log(`Invalid input!`);
+        return;
+    }
+}
+// za judge do tuk
+travelAgency(["Varna", "noEquipment", "yes", "6"])
