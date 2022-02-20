@@ -1,0 +1,49 @@
+function movieRatings (input){
+    let index =0;
+    let numrMov = Number(input[index++]);
+    let nameMov = "" ;
+    let ratMov = 0;
+    let avgRat = 0;
+    let maxRat = 0;
+    let minRat = 0;
+    let tempRat =0;
+
+    for(let j =0; j <= numrMov; j++){
+        
+        let nameMovie = input[index++];
+        let ratingMovie = Number(input[index++]);
+        
+        nameMov += nameMovie
+        tempRat += ratingMovie;
+        
+        console.log(minRat) // nai - nisuk reiting. Pechata samo 7 pati 0
+        console.log(maxRat) // nai - visok reiting. Pechata mi 5 pati 7.8 
+       
+        if (ratingMovie > maxRat) {
+            maxRat = ratingMovie;
+        }
+        
+        if(ratingMovie < minRat){
+            minRat = ratingMovie;
+        }
+       
+    }
+
+    //console.log(maxRat)
+    //console.log(minRat)
+    avgRat = ratMov / numrMov 
+  // console.log(nameMov)
+  // console.log(avgRat)
+  
+}
+movieRatings(["5",
+"A Star is Born",
+"7.8",
+"Creed 2",
+"7.3",
+"Mary Poppins",
+"7.2",
+"Vice",
+"7.2",
+"Captain Marvel",
+"7.1"])
