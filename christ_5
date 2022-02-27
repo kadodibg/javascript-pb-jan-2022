@@ -1,0 +1,29 @@
+function christmastGifts(input) {
+    let index = 0;
+    let command = input[index++];
+    let priceToys = 0;
+    let priceSweaters = 0;
+    let countOver16 = 0;
+    let countUnder16 = 0;
+
+    while (command !== `Christmas`) {
+        let age = Number(command);
+        //  console.log(age)
+        if (age <= 16) {
+            priceToys += 5;
+            countUnder16++
+        } else if (age > 16) {
+            priceSweaters += 15;
+            countOver16++;
+        }
+
+        //console.log("stop")
+
+        command = input[index++];
+    }
+
+    console.log(`Number of adults: ${countOver16}`);
+    console.log(`Number of kids: ${countUnder16}`)
+    console.log(`Money for toys: ${priceToys}`)
+    console.log(`Money for sweaters: ${priceSweaters}`)
+}
